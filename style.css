@@ -1,0 +1,126 @@
+/* Reset básico de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f0f0f0;
+    color: #fff;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(45deg, #ff006e, #ff66b2, #fff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+.header {
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    color: #ff66b2;
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.tokens {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.token-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.token-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
+}
+
+.token-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.token-info {
+    margin-top: 20px;
+}
+
+.token-info h2 {
+    font-size: 2rem;
+    color: #ff006e;
+}
+
+.token-info p {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ff006e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff66b2;
+}
+
+.footer {
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Animações */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
