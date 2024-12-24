@@ -5,45 +5,29 @@
     box-sizing: border-box;
 }
 
-/* Corpo da página */
+/* Corpo da página (removido fundo para testes das pílulas) */
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
     color: white;
     overflow-x: hidden;
+    background-color: black; /* Fundo preto para melhor visibilidade das pílulas */
 }
 
-/* Cabeçalho */
+/* Cabeçalho (removido fundo animado para testes) */
 .header {
     position: relative;
     height: 100vh;
-    background: linear-gradient(to bottom, #ff66b2, #ff3385); /* Cores inspiradas em Zero Two */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    z-index: 10;
 }
 
 /* Conteúdo */
 .content {
     padding: 5vh 10vw;
-    background: #111;
     text-align: center;
-}
-
-.token-info {
-    margin: 20px auto;
-}
-
-.token-info h2 {
-    font-size: 2rem;
-    color: #ff66b2; /* Cor de destaque */
-}
-
-.token-info p {
-    font-size: 1.2rem;
 }
 
 /* Rodapé */
@@ -54,19 +38,19 @@ body {
     color: #ccc;
 }
 
-/* Estilo para as pílulas */
+/* Estilo para as pílulas (ajuste para serem pequenas e caírem) */
 .pill {
     position: absolute;
-    top: -5vh; /* Começam fora da tela (um pouco acima) */
-    width: 2vw; /* Tamanho da pílula em 2% da largura da tela */
-    height: 2vh; /* Tamanho da pílula em 2% da altura da tela */
+    top: -10vh; /* Começam fora da tela */
+    width: 1.5vw; /* Pílulas menores */
+    height: 1.5vh;
     border-radius: 50%; /* Forma arredondada */
     animation: fall 5s linear infinite; /* Animação de queda */
-    pointer-events: none; /* Para evitar que as pílulas interajam com o mouse */
-    background: linear-gradient(to bottom, #00ff00 50%, #ffffff 50%); /* Metade verde e metade branca */
+    pointer-events: none; /* Não interfere com o mouse */
+    background: linear-gradient(to bottom, #00ff00 50%, #ffffff 50%); /* Metade verde, metade branca */
 }
 
-/* Animação da pílula caindo */
+/* Animação de queda das pílulas */
 @keyframes fall {
     0% {
         transform: translateY(0);
@@ -76,17 +60,4 @@ body {
         transform: translateY(100vh); /* A pílula cai até o fundo da tela */
         opacity: 0;
     }
-}
-
-/* Efeito de acumulado no fundo */
-.pill.accumulated {
-    position: absolute;
-    bottom: 10px; /* As pílulas se acumulam no fundo */
-    left: 50%; /* Centraliza as pílulas na tela */
-    transform: translateX(-50%);
-    animation: none; /* Remove a animação de queda quando acumuladas */
-    width: 5vw; /* As pílulas acumuladas ficam um pouco maiores */
-    height: 5vh; /* Ajuste da altura das pílulas acumuladas */
-    border-radius: 50%;
-    background: #00ff00; /* Cor verde para as pílulas acumuladas */
 }
