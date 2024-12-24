@@ -1,126 +1,92 @@
-/* Reset básico de estilos */
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Corpo da página */
 body {
-    background: #f0f0f0;
-    color: #fff;
-    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: white;
     overflow-x: hidden;
 }
 
-.main-container {
+/* Cabeçalho */
+.header {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ff66b2, #ff3385); /* Cores inspiradas em Zero Two */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: white;
     text-align: center;
-    background: linear-gradient(45deg, #ff006e, #ff66b2, #fff);
-    background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
+    z-index: 10;
 }
 
-.header {
-    margin-top: 20px;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.title {
-    font-size: 4rem;
-    letter-spacing: 2px;
-    color: #ff66b2;
-    animation: slideInFromLeft 1s ease-in-out;
-}
-
-.subtitle {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    color: #ffffff;
-}
-
-.tokens {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    gap: 30px;
-}
-
-.token-card {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 15px;
-    width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.token-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
-}
-
-.token-img img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+/* Conteúdo */
+.content {
+    padding: 5vh 10vw;
+    background: #111;
+    text-align: center;
 }
 
 .token-info {
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
 .token-info h2 {
     font-size: 2rem;
-    color: #ff006e;
+    color: #ff66b2; /* Cor de destaque */
 }
 
 .token-info p {
-    color: #ffffff;
     font-size: 1.2rem;
-    margin: 10px 0;
 }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #ff006e;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #ff66b2;
-}
-
+/* Rodapé */
 .footer {
-    margin-top: 50px;
-    font-size: 1.2rem;
-    color: #ffffff;
+    text-align: center;
+    background: #222;
+    padding: 20px;
+    color: #ccc;
 }
 
-/* Animações */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Estilo para as pílulas */
+.pill {
+    position: absolute;
+    top: -5vh; /* Começam fora da tela (um pouco acima) */
+    width: 2vw; /* Tamanho da pílula em 2% da largura da tela */
+    height: 2vh; /* Tamanho da pílula em 2% da altura da tela */
+    border-radius: 50%; /* Forma arredondada */
+    animation: fall 5s linear infinite; /* Animação de queda */
+    pointer-events: none; /* Para evitar que as pílulas interajam com o mouse */
+    background: linear-gradient(to bottom, #00ff00 50%, #ffffff 50%); /* Metade verde e metade branca */
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* Animação da pílula caindo */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* A pílula cai até o fundo da tela */
+        opacity: 0;
+    }
 }
 
-@keyframes slideInFromLeft {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
+/* Efeito de acumulado no fundo */
+.pill.accumulated {
+    position: absolute;
+    bottom: 10px; /* As pílulas se acumulam no fundo */
+    left: 50%; /* Centraliza as pílulas na tela */
+    transform: translateX(-50%);
+    animation: none; /* Remove a animação de queda quando acumuladas */
+    width: 5vw; /* As pílulas acumuladas ficam um pouco maiores */
+    height: 5vh; /* Ajuste da altura das pílulas acumuladas */
+    border-radius: 50%;
+    background: #00ff00; /* Cor verde para as pílulas acumuladas */
 }
-
